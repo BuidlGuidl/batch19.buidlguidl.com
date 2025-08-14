@@ -20,7 +20,7 @@ export default function Page() {
     <>
       <div className="flex flex-col items-center mt-10 p-10" onMouseEnter={() => handleMouseEnter()}>
         <div className="absolute card w-96 bg-base-100 card-lg shadow-sm">
-          <Flags hoverTrigger={hover} pixelsTop="-25" />
+          <Flags hoverTrigger={hover} />
           <div className="card-body">
             <h2 className="card-title">Ethan Rouimi</h2>
             <p>A neovim purist</p>

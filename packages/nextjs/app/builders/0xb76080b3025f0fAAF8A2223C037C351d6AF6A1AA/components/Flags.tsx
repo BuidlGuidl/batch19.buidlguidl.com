@@ -5,13 +5,12 @@ import FlagOfSpain from "./FlagOfSpain";
 
 interface FlagsProps {
   hoverTrigger: boolean;
-  pixelsTop: string;
 }
 
-export default function Flags({ hoverTrigger, pixelsTop }: FlagsProps) {
+export default function Flags({ hoverTrigger }: FlagsProps) {
   return (
     <>
-      <div id="banderas" className={`absolute right-2 top-[${pixelsTop}px] flex`} style={{ zIndex: -2 }}>
+      <div id="banderas" className="absolute right-2 top-[-25px] flex" style={{ zIndex: -2 }}>
         <div className={hoverTrigger ? "animated" : ""}>
           <FlagOfFrance />
         </div>
