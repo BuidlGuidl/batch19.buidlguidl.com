@@ -3,7 +3,7 @@ import { DeployFunction } from "hardhat-deploy/types";
 import { Contract } from "ethers";
 
 // Update with your Batch number
-const BATCH_NUMBER = "19";
+// const BATCH_NUMBER = "19";
 
 /**
  * Deploys a contract named "deployYourContract" using the deployer account and
@@ -25,16 +25,11 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
 
-  await deploy("BatchRegistry", {
+  await deploy("CheckIn", {
     from: deployer,
-    // Contract constructor arguments
-    args: [deployer, BATCH_NUMBER],
+    args: ["0x5FbDB2315678afecb367f032d93F642f64180aa3"], // Pass real BatchRegistry address
     log: true,
-    // autoMine: can be passed to the deploy function to make the deployment process faster on local networks by
-    // automatically mining the contract deployment transaction. There is no effect on live networks.
-    autoMine: true,
   });
-
   // Get the deployed contract to interact with it after deploying.
   const batchRegistry = await hre.ethers.getContract<Contract>("BatchRegistry", deployer);
   console.log("\nBatchRegistry deployed to:", await batchRegistry.getAddress());

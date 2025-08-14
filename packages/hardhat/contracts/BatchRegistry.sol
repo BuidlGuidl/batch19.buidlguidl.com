@@ -30,6 +30,7 @@ contract BatchRegistry is Ownable {
         _;
     }
 
+
     modifier senderIsContract() {
         if (tx.origin == msg.sender) revert NotAContract();
         _;
