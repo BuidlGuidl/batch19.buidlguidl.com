@@ -1,8 +1,8 @@
-import React from "react";
 import Image from "next/image";
+import type { NextPage } from "next";
 import { Address } from "~~/components/scaffold-eth";
 
-const Page = () => {
+const Sahib: NextPage = () => {
   return (
     <div className="flex w-full h-[75vh] flex-col items-center justify-center gap-8">
       <div className="max-w-2xl w-full bg-[#385183] mt-8 shadow-lg shadow-amber-900 rounded-xl p-8 backdrop-blur-sm transition-all hover:shadow-xl">
@@ -31,4 +31,4 @@ const Page = () => {
     </div>
   );
 };
-export default Page;
+export default Sahib;
