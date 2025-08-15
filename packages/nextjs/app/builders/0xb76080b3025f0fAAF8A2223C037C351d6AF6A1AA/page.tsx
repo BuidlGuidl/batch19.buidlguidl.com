@@ -9,10 +9,9 @@ import linkedinIcon from "./assets/linkedin-svgrepo-com.svg";
 import envelopeIcon from "./assets/mail-alt-3-svgrepo-com.svg";
 import telegramIcon from "./assets/telegram-logo.svg";
 import Flags from "./components/Flags";
-import { Address } from "~~/components/scaffold-eth";
 
 export default function Page() {
-  const heightWidth = 40;
+  const heightWidth = 50;
   const [hover, setHover] = useState(false);
   const handleMouseEnter = () => {
     if (hover) return;
@@ -35,7 +34,6 @@ export default function Page() {
                 <div className="avatar">
                   <div className="w-24 rounded-xl">
                     <Image src={photo} alt="profile photo" />
-                    <img src="./assets/0xethanol.png" />
                   </div>
                 </div>
                 <h2 className="card-title">Ethan Rouimi</h2>
@@ -79,48 +77,39 @@ export default function Page() {
         </div>
 
         <div className="card w-96 dark:bg-slate-800 bg-white card-lg shadow-sm mt-10 rounded-md">
-          <div className="card-body justify-center card-actions flex flex-col">
-            <div>
-              <h2 className="font-bold mb-5">Socials</h2>
-              <div className="flex flex-col justify-end gap-3 text-3xl">
-                <div className="flex flex-row gap-3">
-                  <a className="size-fit" aria-label="Email" href="mailto:contact@ethan-rouimi.com">
-                    <div className="flex h-fit w-fit items-center justify-center rounded-lg border-2 p-[2px] transition ease-in-out dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700  hover:bg-slate-200 hover:border-slate-500  border-slate-400">
-                      <Image height={heightWidth} width={heightWidth} src={envelopeIcon} alt="envelope icon" />
-                    </div>
-                  </a>
+          <div className="card-body justify-center card-actions">
+            <h2 className="font-bold mb-5">Socials</h2>
+            <div className="flex flex-col justify-end gap-3 w-full">
+              <div className="w-full flex flex-row justify-around">
+                <a className="size-fit" aria-label="Email" href="mailto:contact@ethan-rouimi.com">
+                  <div className="flex h-fit w-fit items-center justify-center rounded-lg border-2 p-[2px] transition ease-in-out dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700  hover:bg-slate-200 hover:border-slate-500  border-slate-400">
+                    <Image height={heightWidth} width={heightWidth} src={envelopeIcon} alt="envelope icon" />
+                  </div>
+                </a>
 
-                  <a className="size-fit" aria-label="Github Link" href="https://github.com/Ethanol48">
-                    <div className="flex h-fit w-fit items-center justify-center rounded-lg border-2 p-[2px] transition ease-in-out dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700  hover:bg-slate-200 hover:border-slate-500  border-slate-400">
-                      <Image height={heightWidth} width={heightWidth} src={githubIcon} alt="github icon" />
-                    </div>
-                  </a>
+                <a className="size-fit" aria-label="Github Link" href="https://github.com/Ethanol48">
+                  <div className="flex h-fit w-fit items-center justify-center rounded-lg border-2 p-[2px] transition ease-in-out dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700  hover:bg-slate-200 hover:border-slate-500  border-slate-400">
+                    <Image height={heightWidth} width={heightWidth} src={githubIcon} alt="github icon" />
+                  </div>
+                </a>
 
-                  <a className="size-fit" aria-label="Linkedin Link" href="https://linkedin.com/in/ethan-rouimi">
-                    <div className="flex h-fit w-fit items-center justify-center rounded-lg border-2 p-[2px] transition ease-in-out dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700  hover:bg-slate-200 hover:border-slate-500  border-slate-400">
-                      <Image
-                        height={heightWidth}
-                        width={heightWidth}
-                        src={linkedinIcon}
-                        alt="linkedin icon"
-                        className="linkedin"
-                      />
-                    </div>
-                  </a>
+                <a className="size-fit" aria-label="Linkedin Link" href="https://linkedin.com/in/ethan-rouimi">
+                  <div className="flex h-fit w-fit items-center justify-center rounded-lg border-2 p-[2px] transition ease-in-out dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700  hover:bg-slate-200 hover:border-slate-500  border-slate-400">
+                    <Image
+                      height={heightWidth}
+                      width={heightWidth}
+                      src={linkedinIcon}
+                      alt="linkedin icon"
+                      className="linkedin"
+                    />
+                  </div>
+                </a>
 
-                  <a className="size-fit" aria-label="Telegram" href="https://t.me/EthanRouimi">
-                    <div className="flex h-fit w-fit items-center justify-center rounded-lg border-2 p-[4px] transition ease-in-out dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700  hover:bg-slate-200 hover:border-slate-500  border-slate-400">
-                      <Image height={heightWidth - 4} width={heightWidth - 4} src={telegramIcon} alt="telegram icon" />
-                    </div>
-                  </a>
-                </div>
-
-                <Address
-                  disableAddressLink={true}
-                  onlyEnsOrAddress={true}
-                  size="lg"
-                  address="0xb76080b3025f0fAAF8A2223C037C351d6AF6A1AA"
-                />
+                <a className="size-fit" aria-label="Telegram" href="https://t.me/EthanRouimi">
+                  <div className="flex h-fit w-fit items-center justify-center rounded-lg border-2 p-[4px] transition ease-in-out dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700  hover:bg-slate-200 hover:border-slate-500  border-slate-400">
+                    <Image height={heightWidth - 4} width={heightWidth - 4} src={telegramIcon} alt="telegram icon" />
+                  </div>
+                </a>
               </div>
             </div>
           </div>
