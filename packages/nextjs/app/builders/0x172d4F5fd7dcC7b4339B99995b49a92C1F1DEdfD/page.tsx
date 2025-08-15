@@ -1,20 +1,11 @@
-// components/ProfileCard.tsx
-import React from "react";
 import Image from "next/image";
 
-const ProfileCard = () => {
+const Mikey = () => {
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white rounded-xl shadow-lg">
-      {/* 头部 - 头像和基本信息 */}
       <div className="flex flex-col md:flex-row items-center gap-6 mb-8">
         <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-indigo-100">
-          <Image
-            src="/fish.jpg" // 替换成你的头像路径
-            alt="个人头像"
-            layout="fill"
-            objectFit="cover"
-            className="hover:scale-105 transition-transform"
-          />
+          <Image src="/fish.jpg" alt="avatar" layout="fill" objectFit="cover" />
         </div>
 
         <div className="text-center md:text-left">
@@ -32,9 +23,8 @@ const ProfileCard = () => {
         </div>
       </div>
 
-      {/* 个人简介 */}
       <section className="mb-8">
-        <h2 className="text-xl font-semibold text-gray-800 mb-3 pb-2 border-b">Abount me</h2>
+        <h2 className="text-xl font-semibold text-gray-800 mb-3 pb-2 border-b">About me</h2>
         <p className="text-gray-600 leading-relaxed">
           I am a backend development engineer from China with 3 years of Golang development experience. I am now working
           on entering the web3 industry and making a Transition to solidity development. I hope to improve my cognition
@@ -45,7 +35,6 @@ const ProfileCard = () => {
         </p>
       </section>
 
-      {/* 技能标签 */}
       <section className="mb-8">
         <h2 className="text-xl font-semibold text-gray-800 mb-3 pb-2 border-b">Skills</h2>
         <div className="flex flex-wrap gap-2">
@@ -83,4 +72,4 @@ const EmailIcon = () => (
   </svg>
 );
 
-export default ProfileCard;
+export default Mikey;
