@@ -84,7 +84,7 @@ contract BatchRegistry is Ownable {
 
     // Withdraw function for admins in case some builders don't end up checking in
     function withdraw() public onlyOwner {
-        (bool success, ) = payable(owner()).call{ value: address(this).balance }("");
+        (bool success,) = payable(owner()).call{value: address(this).balance}("");
         require(success, "Failed to withdraw");
     }
 
