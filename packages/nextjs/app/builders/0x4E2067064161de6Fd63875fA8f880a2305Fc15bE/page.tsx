@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { NextPage } from "next";
 
-const VigneshBuilderPage: NextPage = () => {
+const vigneshBuilderPage: NextPage = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 p-4">
       <div className="max-w-4xl w-full bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
@@ -15,8 +15,8 @@ const VigneshBuilderPage: NextPage = () => {
             height={100}
             className="rounded-full border-4 border-white"
           />
-          <h2 className="text-xl font-semibold mt-4">Vignesh V</h2>
-          <p className="text-sm">Web 3.0</p>
+          <h2 className="text-xl font-semibold mt-4">Your Name</h2>
+          <p className="text-sm">Web Designer</p>
           <a
             href="#"
             className="mt-4 inline-flex items-center justify-center w-8 h-8 border border-white rounded-full hover:bg-white hover:text-pink-500 transition"
@@ -33,11 +33,11 @@ const VigneshBuilderPage: NextPage = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
               <div>
                 <p className="text-gray-500 text-sm">Email</p>
-                <p className="text-gray-800 dark:text-gray-300">vigvishnu987@gmail.com</p>
+                <p className="text-gray-800 dark:text-gray-300">your@email.com</p>
               </div>
               <div>
                 <p className="text-gray-500 text-sm">Phone</p>
-                <p className="text-gray-800 dark:text-gray-300">+91 9344941328</p>
+                <p className="text-gray-800 dark:text-gray-300">9876543210</p>
               </div>
             </div>
           </section>
@@ -48,16 +48,15 @@ const VigneshBuilderPage: NextPage = () => {
             <div className="grid grid-cols-2 gap-4 mt-2">
               <div>
                 <p className="text-gray-500 text-sm">Recent</p>
-                <p className="text-gray-800 dark:text-gray-300">SRE</p>
+                <p className="text-gray-800 dark:text-gray-300">Project Name</p>
               </div>
               <div>
                 <p className="text-gray-500 text-sm">Most Viewed</p>
-                <p className="text-gray-800 dark:text-gray-300">ETH</p>
+                <p className="text-gray-800 dark:text-gray-300">Another Project</p>
               </div>
             </div>
           </section>
 
-          {/* Social Links */}
           {/* Social Links */}
           <section className="mt-6 flex space-x-4">
             {/* LinkedIn */}
@@ -143,4 +142,4 @@ const VigneshBuilderPage: NextPage = () => {
   );
 };
 
-export default VigneshBuilderPage;
+export default vigneshBuilderPage;
