@@ -1,5 +1,5 @@
 import Image from "next/image";
-import flagOfSpain from "./assets/Spain-flag.png";
+import flagOfSpain from "../assets/Spain-flag.png";
 
 interface SpainFlagProps {
   className?: string;

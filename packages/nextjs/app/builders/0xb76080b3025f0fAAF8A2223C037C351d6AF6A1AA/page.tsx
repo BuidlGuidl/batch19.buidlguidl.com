@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import photo from "./assets/0xethanol.png";
+import githubIcon from "./assets/github-svgrepo-com.svg";
+import linkedinIcon from "./assets/linkedin-svgrepo-com.svg";
+import envelopeIcon from "./assets/mail-alt-3-svgrepo-com.svg";
+import telegramIcon from "./assets/telegram-logo.svg";
 import Flags from "./components/Flags";
-import githubIcon from "./components/assets/github-svgrepo-com.svg";
-import linkedinIcon from "./components/assets/linkedin-svgrepo-com.svg";
-import envelopeIcon from "./components/assets/mail-alt-3-svgrepo-com.svg";
 import { Address } from "~~/components/scaffold-eth";
 
 export default function Page() {
@@ -23,19 +25,25 @@ export default function Page() {
 
   return (
     <>
-      <div className="flex flex-col items-center my-10 p-10">
+      <div className="flex flex-col items-center p-10 pt-12">
         <div onMouseEnter={() => handleMouseEnter()}>
           <div className="relative card w-96 bg-base-100 card-lg shadow-sm">
             <Flags hoverTrigger={hover} />
             <div className="dark:bg-slate-800 card-body rounded-md">
-              <div className="flex flex-row">
+              <div className="flex flex-row justify-between pr-12">
+                <div className="avatar">
+                  <div className="w-24 rounded-xl">
+                    <Image src={photo} alt="profile photo" />
+                    <img src="./assets/0xethanol.png" />
+                  </div>
+                </div>
                 <h2 className="card-title">Ethan Rouimi</h2>
               </div>
               <p>
-                I&apos;m a 22 year old self-taught software developer, I&apos;m from the Canary Islands and I&apos;m a
-                Franco-Spanish citizen.
+                I&apos;m a self-taught software developer from the Canary Islands with a passion to open-source
+                software.
               </p>
-              <p className="absolute right-[-40px] bottom-[-25px] rotate-[-35deg] text-xs text-center">
+              <p className="absolute right-[-40px] bottom-[-15px] rotate-[-35deg] text-xs text-center">
                 Hover over me <br /> to see what happens :)
               </p>
             </div>
@@ -45,33 +53,64 @@ export default function Page() {
         <div className="card w-96 dark:bg-slate-800 bg-white card-lg shadow-sm mt-10 rounded-md">
           <div className="card-body justify-center card-actions flex flex-col">
             <div>
-              <h2 className="font-bold mb-4">Socials</h2>
-              <div className="flex justify-end gap-3 text-3xl" aria-label="Email">
-                <div className="flex h-fit w-fit items-center justify-center rounded-lg border-2 p-[2px] transition ease-in-out dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700  hover:bg-slate-200 hover:border-slate-500  border-slate-400">
-                  <Image height={heightWidth} width={heightWidth} src={envelopeIcon} alt="envelope icon" />
+              <h2 className="font-bold mb-4">Some of my skills</h2>
+              <div>
+                <div className="badge text-black bg-gray-300  dark:bg-gray-400 m-[1px]">Solidity</div>
+                <div className="badge text-black bg-blue-300  dark:bg-blue-400 m-[1px]">Golang</div>
+                <div className="badge text-black bg-yellow-300 dark:bg-yellow-400 m-[1px]">Python</div>
+                <div className="badge text-black bg-amber-500 dark:bg-amber-600 m-[1px]">Rust</div>
+
+                <div className="flex flex-row">
+                  <div className="badge text-black bg-orange-400 dark:bg-orange-500 m-[1px]">SvelteKit</div>
+                  <div className="badge text-black bg-purple-200 dark:bg-purple-300 m-[1px]">Nextjs</div>
+                  <div className="ml-3 text-gray-500">and more ...</div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-                <a className="size-fit" aria-label="Github Link" href="https://github.com/Ethanol48">
-                  <div className="flex h-fit w-fit items-center justify-center rounded-lg border-2 p-[2px] transition ease-in-out dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700  hover:bg-slate-200 hover:border-slate-500  border-slate-400">
-                    <Image height={heightWidth} width={heightWidth} src={githubIcon} alt="github icon" />
-                  </div>
-                </a>
+        <div className="card w-96 dark:bg-slate-800 bg-white card-lg shadow-sm mt-10 rounded-md">
+          <div className="card-body justify-center card-actions flex flex-col">
+            <div>
+              <h2 className="font-bold mb-5">Socials</h2>
+              <div className="flex flex-col justify-end gap-3 text-3xl">
+                <div className="flex flex-row gap-3">
+                  <a className="size-fit" aria-label="Email" href="mailto:contact@ethan-rouimi.com">
+                    <div className="flex h-fit w-fit items-center justify-center rounded-lg border-2 p-[2px] transition ease-in-out dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700  hover:bg-slate-200 hover:border-slate-500  border-slate-400">
+                      <Image height={heightWidth} width={heightWidth} src={envelopeIcon} alt="envelope icon" />
+                    </div>
+                  </a>
 
-                <a className="size-fit" aria-label="Linkedin Link" href="https://linkedin.com/in/ethan-rouimi">
-                  <div className="flex h-fit w-fit items-center justify-center rounded-lg border-2 p-[2px] transition ease-in-out dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700  hover:bg-slate-200 hover:border-slate-500  border-slate-400">
-                    <Image
-                      height={heightWidth}
-                      width={heightWidth}
-                      src={linkedinIcon}
-                      alt="linkedin icon"
-                      className="linkedin"
-                    />
-                  </div>
-                </a>
+                  <a className="size-fit" aria-label="Github Link" href="https://github.com/Ethanol48">
+                    <div className="flex h-fit w-fit items-center justify-center rounded-lg border-2 p-[2px] transition ease-in-out dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700  hover:bg-slate-200 hover:border-slate-500  border-slate-400">
+                      <Image height={heightWidth} width={heightWidth} src={githubIcon} alt="github icon" />
+                    </div>
+                  </a>
+
+                  <a className="size-fit" aria-label="Linkedin Link" href="https://linkedin.com/in/ethan-rouimi">
+                    <div className="flex h-fit w-fit items-center justify-center rounded-lg border-2 p-[2px] transition ease-in-out dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700  hover:bg-slate-200 hover:border-slate-500  border-slate-400">
+                      <Image
+                        height={heightWidth}
+                        width={heightWidth}
+                        src={linkedinIcon}
+                        alt="linkedin icon"
+                        className="linkedin"
+                      />
+                    </div>
+                  </a>
+
+                  <a className="size-fit" aria-label="Telegram" href="https://t.me/EthanRouimi">
+                    <div className="flex h-fit w-fit items-center justify-center rounded-lg border-2 p-[4px] transition ease-in-out dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700  hover:bg-slate-200 hover:border-slate-500  border-slate-400">
+                      <Image height={heightWidth - 4} width={heightWidth - 4} src={telegramIcon} alt="telegram icon" />
+                    </div>
+                  </a>
+                </div>
 
                 <Address
                   disableAddressLink={true}
                   onlyEnsOrAddress={true}
+                  size="lg"
                   address="0xb76080b3025f0fAAF8A2223C037C351d6AF6A1AA"
                 />
               </div>

@@ -1,6 +1,6 @@
 // components/FranceFlag.tsx
 import Image from "next/image";
-import flagOfFrance from "./assets/France-flag.png";
+import flagOfFrance from "../assets/France-flag.png";
 
 interface FranceFlagProps {
   className?: string;
