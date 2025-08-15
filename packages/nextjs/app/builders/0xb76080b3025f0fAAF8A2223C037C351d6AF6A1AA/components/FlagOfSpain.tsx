@@ -24,7 +24,12 @@ export default function SpainFlag({ className, rotate = 0, style = {} }: SpainFl
           viewBox="0 0 4 3"
           preserveAspectRatio="xMidYMid meet"
         >
-          <circle cx="1.8" cy="1.5" r="0.8" stroke="gainsboro" fill="gainsboro" />
+          <circle
+            className="stroke-slate-800 fill-slate-800 dark:stroke-[gainsboro] dark:fill-[gainsboro]"
+            cx="1.8"
+            cy="1.5"
+            r="0.8"
+          />
         </svg>
 
         <svg
@@ -35,7 +40,14 @@ export default function SpainFlag({ className, rotate = 0, style = {} }: SpainFl
           viewBox="0 0 3 40"
           preserveAspectRatio="xMidYMid meet"
         >
-          <line x1="2" y1="0" x2="2" y2="25" style={{ stroke: "gainsboro", strokeWidth: 2 }} />
+          <line
+            x1="2"
+            y1="0"
+            x2="2"
+            y2="25"
+            className="stroke-slate-800 fill-slate-800 dark:stroke-[gainsboro] dark:fill-[gainsboro]"
+            style={{ strokeWidth: 2 }}
+          />
         </svg>
 
         <Image className="flag size-7" src={flagOfSpain} alt="Spain flag" />
