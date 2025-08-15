@@ -90,27 +90,28 @@ contract BatchGraduationNFT is ERC721 {
     }
 
     function generateSVG(string memory name, uint8 r, uint8 g, uint8 b) internal view returns (string memory) {
-        return string(
-            abi.encodePacked(
-                '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">',
-                '<circle cx="100" cy="100" r="90" fill="rgb(',
-                Strings.toString(r),
-                ",",
-                Strings.toString(g),
-                ",",
-                Strings.toString(b),
-                ')" />',
-                '<path d="M112.436 44.642v18.643h-7.841v-5.493a4.374 4.374 0 0 0-4.377-4.365c-2.417 0-4.381 1.954-4.381 4.365v5.493H88.03V44.642h4.57v2.693a2.073 2.073 0 0 0 .6 1.498 2.095 2.095 0 0 0 1.494.625 2.104 2.104 0 0 0 1.495-.625 2.081 2.081 0 0 0 .599-1.498v-2.693h2.362v-9.827c5.87-2.396 6.033 4.381 12.053 2.408-1.988 3.577-5.081 4-7.594 3.377-1.899-.47-2.421.596-2.421.596v3.446h2.456v2.681a2.058 2.058 0 0 0 .598 1.499 2.095 2.095 0 0 0 1.495.624 2.104 2.104 0 0 0 1.495-.624 2.076 2.076 0 0 0 .599-1.499v-2.68h4.605z" fill="white" />',
-                '<text x="100" y="85" font-family="Times New Roman, Georgia, serif" font-weight="bold" font-size="24" fill="white" text-anchor="middle">Batch ',
-                Strings.toString(batchRegistry.BATCH_NUMBER()),
-                "</text>",
-                '<text x="100" y="93" font-family="Times New Roman, Georgia, serif" font-size="8" fill="white" text-anchor="middle">graduate</text>',
-                '<text x="100" y="135" font-family="monospace" font-size="14" fill="white" text-anchor="middle">',
-                name,
-                "</text>",
-                '<text x="100" y="170" font-family="Times New Roman, Georgia, serif" font-size="6" fill="white" text-anchor="middle">BuidlGuidl</text>',
-                "</svg>"
-            )
-        );
+        return
+            string(
+                abi.encodePacked(
+                    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">',
+                    '<circle cx="100" cy="100" r="90" fill="rgb(',
+                    Strings.toString(r),
+                    ",",
+                    Strings.toString(g),
+                    ",",
+                    Strings.toString(b),
+                    ')" />',
+                    '<path d="M112.436 44.642v18.643h-7.841v-5.493a4.374 4.374 0 0 0-4.377-4.365c-2.417 0-4.381 1.954-4.381 4.365v5.493H88.03V44.642h4.57v2.693a2.073 2.073 0 0 0 .6 1.498 2.095 2.095 0 0 0 1.494.625 2.104 2.104 0 0 0 1.495-.625 2.081 2.081 0 0 0 .599-1.498v-2.693h2.362v-9.827c5.87-2.396 6.033 4.381 12.053 2.408-1.988 3.577-5.081 4-7.594 3.377-1.899-.47-2.421.596-2.421.596v3.446h2.456v2.681a2.058 2.058 0 0 0 .598 1.499 2.095 2.095 0 0 0 1.495.624 2.104 2.104 0 0 0 1.495-.624 2.076 2.076 0 0 0 .599-1.499v-2.68h4.605z" fill="white" />',
+                    '<text x="100" y="85" font-family="Times New Roman, Georgia, serif" font-weight="bold" font-size="24" fill="white" text-anchor="middle">Batch ',
+                    Strings.toString(batchRegistry.BATCH_NUMBER()),
+                    "</text>",
+                    '<text x="100" y="93" font-family="Times New Roman, Georgia, serif" font-size="8" fill="white" text-anchor="middle">graduate</text>',
+                    '<text x="100" y="135" font-family="monospace" font-size="14" fill="white" text-anchor="middle">',
+                    name,
+                    "</text>",
+                    '<text x="100" y="170" font-family="Times New Roman, Georgia, serif" font-size="6" fill="white" text-anchor="middle">BuidlGuidl</text>',
+                    "</svg>"
+                )
+            );
     }
 }
