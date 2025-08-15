@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import photo from "./assets/0xethanol.png";
+import canaryFlag from "./assets/flag-canary-islands-min.png";
 import githubIcon from "./assets/github-svgrepo-com.svg";
 import linkedinIcon from "./assets/linkedin-svgrepo-com.svg";
 import envelopeIcon from "./assets/mail-alt-3-svgrepo-com.svg";
@@ -39,10 +40,17 @@ export default function Page() {
                 </div>
                 <h2 className="card-title">Ethan Rouimi</h2>
               </div>
-              <p>
-                I&apos;m a self-taught software developer from the Canary Islands with a passion to open-source
-                software.
-              </p>
+              <div className="relative mt-2">
+                <div>I&apos;m a self-taught software developer from the Canary Islands</div>
+                <Image
+                  className="absolute bottom-[1px] left-[135px]"
+                  src={canaryFlag}
+                  height={20}
+                  width={20}
+                  alt="Canary Islands flag"
+                />
+              </div>
+              <div>with a passion for open-source projects.</div>
               <p className="absolute right-[-40px] bottom-[-15px] rotate-[-35deg] text-xs text-center">
                 Hover over me <br /> to see what happens :)
               </p>
