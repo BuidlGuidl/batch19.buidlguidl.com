@@ -25,12 +25,12 @@ const socials = [
   {
     name: "GitHub",
     icon: <GitHubIcon className="w-6 h-6" />,
-    link: "https://github.com/cmaranber",
+    link: "https://github.com/AntFrasier",
   },
   {
     name: "Twitter",
     icon: <TwitterIcon className="w-6 h-6" mode="new" />,
-    link: "https://x.com/cmaranber",
+    link: "https://x.com/MaranberC",
   },
   {
     name: "BuidlGuidl profile",
@@ -40,29 +40,43 @@ const socials = [
 ];
 
 function Cmaranber() {
-  const [lang, setLang] = useState<"fr" | "en">("fr");
+  const [lang, setLang] = useState<"fr" | "en">("en");
 
   return (
-    <div className="card bg-base-100 w-96 shadow-sm">
-      <figure className="w-full h-full bg-g">
+    <div className="card bg-base-100 w-full h-full md:h-auto md:w-96 shadow-sm">
+      <figure className="w-full h-full bg-gradient-to-br from-white  to-green-200 dark:from-blue-400 dark:to-blue-100 relative">
         <Image src="/cmaranber/bg-batches-train.png" alt="bg-onboarding" width={500} height={500} />
+        <div className="absolute top-2 right-2 flex flex-row items-center gap-2 text-xs">
+          <button
+            className={`bg-base-100 px-2 py-2 rounded-full hover:bg-base-300 cursor-pointer ${lang === "fr" ? "bg-base-300" : ""} transition-colors duration-300`}
+            onClick={() => setLang("fr")}
+          >
+            FR
+          </button>
+          <button
+            className={`bg-base-100 px-2 py-2 rounded-full hover:bg-base-300 cursor-pointer ${lang === "en" ? "bg-base-300" : ""} transition-colors duration-300`}
+            onClick={() => setLang("en")}
+          >
+            EN
+          </button>
+        </div>
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{traduction[lang].title}</h2>
-        <Address address="0xB810b728E44df56eAf4Da93DDd08168B3660753f" onlyEnsOrAddress />
+        <div className="flex flex-row items-center justify-between">
+          <h2 className="card-title">{traduction[lang].title}</h2>
+          <Address address="0xB810b728E44df56eAf4Da93DDd08168B3660753f" onlyEnsOrAddress />
+        </div>
         <p>{traduction[lang].description}</p>
         <ul className="flex gap-2 flex-wrap justify-start items-center flex-row">
           {socials.map(social => (
             <li key={social.link} title={social.link}>
-              <Link href={social.link}>{social.icon}</Link>
+              <Link href={social.link} target="_blank" className="hover:text-primary transition-colors duration-300">
+                {social.icon}
+              </Link>
             </li>
           ))}
         </ul>
-        <div className="card-actions justify-end">
-          <button className="btn btn-primary" onClick={() => setLang(lang === "fr" ? "en" : "fr")}>
-            {lang === "fr" ? "English" : "Français"}
-          </button>
-        </div>
+        <div className="card-actions justify-end"></div>
       </div>
     </div>
   );
