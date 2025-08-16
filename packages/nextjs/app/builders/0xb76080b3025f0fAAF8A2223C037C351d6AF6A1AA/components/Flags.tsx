@@ -1,13 +1,13 @@
 "use client";
 
-import FlagOfFrance from "./FlagOfFrance";
-import FlagOfSpain from "./FlagOfSpain";
+import { FlagOfFrance } from "./FlagOfFrance";
+import { FlagOfSpain } from "./FlagOfSpain";
 
 interface FlagsProps {
   hoverTrigger: boolean;
 }
 
-export default function Flags({ hoverTrigger }: FlagsProps) {
+export function Flags({ hoverTrigger }: FlagsProps) {
   return (
     <>
       <div id="banderas" className="absolute right-2 top-[-25px] flex" style={{ zIndex: -2 }}>
@@ -21,13 +21,6 @@ export default function Flags({ hoverTrigger }: FlagsProps) {
       </div>
 
       <style jsx>{`
-        /* Estilos específicos para Firefox */
-        @-moz-document url-prefix() {
-          #banderas {
-            margin-top: 5px;
-          }
-        }
-
         .animated {
           animation: moveRightLeft 2s;
         }

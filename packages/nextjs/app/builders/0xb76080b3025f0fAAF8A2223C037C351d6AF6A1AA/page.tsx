@@ -8,9 +8,10 @@ import githubIcon from "./assets/github-svgrepo-com.svg";
 import linkedinIcon from "./assets/linkedin-svgrepo-com.svg";
 import envelopeIcon from "./assets/mail-alt-3-svgrepo-com.svg";
 import telegramIcon from "./assets/telegram-logo.svg";
-import Flags from "./components/Flags";
+import { Flags } from "./components/Flags";
+import type { NextPage } from "next";
 
-export default function Page() {
+const Ethanol: NextPage = () => {
   const heightWidth = 50;
   const [hover, setHover] = useState(false);
   const handleMouseEnter = () => {
@@ -101,6 +102,7 @@ export default function Page() {
                       src={linkedinIcon}
                       alt="linkedin icon"
                       className="linkedin"
+                      style={{ color: "rgba(24, 152, 222, 0.7)" }}
                     />
                   </div>
                 </a>
@@ -136,12 +138,8 @@ export default function Page() {
           <p className="text-xs text-center">I love neovim</p>
         </div>
       </div>
-
-      <style jsx>{`
-        .linkedin {
-          color: rgba(24, 152, 222, 0.7);
-        }
-      `}</style>
     </>
   );
-}
+};
+
+export default Ethanol;
