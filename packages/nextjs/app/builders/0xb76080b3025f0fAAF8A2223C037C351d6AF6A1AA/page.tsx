@@ -11,8 +11,9 @@ import telegramIcon from "./assets/telegram-logo.svg";
 import { Flags } from "./components/Flags";
 import type { NextPage } from "next";
 
+const iconSize = 50;
+
 const Ethanol: NextPage = () => {
-  const iconSize = 50;
   const [hover, setHover] = useState(false);
   const handleMouseEnter = () => {
     if (hover) return;
