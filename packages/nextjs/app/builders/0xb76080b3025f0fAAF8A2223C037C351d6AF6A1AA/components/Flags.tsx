@@ -15,6 +15,7 @@ export function Flags({ hoverTrigger }: FlagsProps) {
           <FlagOfFrance />
         </div>
 
+        <div className="stroke-slate-300"></div>
         <div className={hoverTrigger ? "animated" : ""} style={{ animationDelay: "0.1s" }}>
           <FlagOfSpain />
         </div>
