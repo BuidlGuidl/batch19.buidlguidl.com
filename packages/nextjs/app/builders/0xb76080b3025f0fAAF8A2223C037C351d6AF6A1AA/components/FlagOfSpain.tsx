@@ -1,13 +1,9 @@
 import Image from "next/image";
 import flagOfSpain from "../assets/Spain-flag.png";
 
-interface SpainFlagProps {
-  className?: string;
-}
-
-export function FlagOfSpain({ className }: SpainFlagProps) {
+export function FlagOfSpain() {
   return (
-    <div className={`ml-[10px] delay-[50ms] h-fit w-fit ${className}`}>
+    <div className={"ml-[10px] delay-[50ms] h-fit w-fit"}>
       <div className="rotate-[2deg] relative">
         <svg
           className="absolute left-[0px] top-1 z-10"

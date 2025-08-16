@@ -2,17 +2,9 @@
 import Image from "next/image";
 import flagOfFrance from "../assets/France-flag.png";
 
-interface FranceFlagProps {
-  className?: string;
-}
-
-export function FlagOfFrance({ className }: FranceFlagProps) {
-  const styleAdjusted: React.CSSProperties = {
-    transitionDuration: "1000ms",
-  };
-
+export function FlagOfFrance() {
   return (
-    <div className={`mr-[5px] h-fit w-fit transition ${className}`} style={styleAdjusted}>
+    <div className={"mr-[5px] h-fit w-fit transition duration-1000"}>
       <div className="rotate-[-5deg] relative">
         <svg
           className="absolute left-0 top-1 z-10"
