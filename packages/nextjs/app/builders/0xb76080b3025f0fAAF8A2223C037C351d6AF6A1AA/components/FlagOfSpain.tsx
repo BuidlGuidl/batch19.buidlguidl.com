@@ -3,19 +3,16 @@ import flagOfSpain from "../assets/Spain-flag.png";
 
 interface SpainFlagProps {
   className?: string;
-  rotate?: number;
-  style?: React.CSSProperties;
 }
 
-export default function SpainFlag({ className, rotate = 0, style = {} }: SpainFlagProps) {
+export function FlagOfSpain({ className }: SpainFlagProps) {
   const styleAdjusted: React.CSSProperties = {
-    rotate: `${rotate}deg`,
-    ...style,
+    rotate: `0deg`,
   };
 
   return (
-    <div className={`container-bandera h-fit w-fit ${className}`} style={styleAdjusted}>
-      <div className="otro relative">
+    <div className={`ml-[10px] delay-[50ms] h-fit w-fit ${className}`} style={styleAdjusted}>
+      <div className="rotate-[2deg] relative">
         <svg
           className="absolute left-[0px] top-1 z-10"
           xmlns="http://www.w3.org/2000/svg"
@@ -50,21 +47,8 @@ export default function SpainFlag({ className, rotate = 0, style = {} }: SpainFl
           />
         </svg>
 
-        <Image className="flag size-7" src={flagOfSpain} alt="Spain flag" />
+        <Image className="size-7" src={flagOfSpain} alt="Spain flag" />
       </div>
-
-      <style jsx>{`
-        .otro {
-          rotate: 2deg;
-        }
-        .container-bandera {
-          margin-left: 10px;
-          animation-delay: 50ms;
-        }
-        .flag {
-          margin-left: 2.5px;
-        }
-      `}</style>
     </div>
   );
 }
