@@ -8,7 +8,6 @@ interface FranceFlagProps {
 
 export function FlagOfFrance({ className }: FranceFlagProps) {
   const styleAdjusted: React.CSSProperties = {
-    rotate: `0deg`,
     transitionDuration: "1000ms",
   };
 

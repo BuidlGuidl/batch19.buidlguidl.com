@@ -12,7 +12,7 @@ import { Flags } from "./components/Flags";
 import type { NextPage } from "next";
 
 const Ethanol: NextPage = () => {
-  const heightWidth = 50;
+  const iconSize = 50;
   const [hover, setHover] = useState(false);
   const handleMouseEnter = () => {
     if (hover) return;
@@ -84,21 +84,21 @@ const Ethanol: NextPage = () => {
               <div className="w-full flex flex-row justify-around">
                 <a className="size-fit" aria-label="Email" href="mailto:contact@ethan-rouimi.com">
                   <div className="flex h-fit w-fit items-center justify-center rounded-lg border-2 p-[2px] transition ease-in-out dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700  hover:bg-slate-200 hover:border-slate-500  border-slate-400">
-                    <Image height={heightWidth} width={heightWidth} src={envelopeIcon} alt="envelope icon" />
+                    <Image height={iconSize} width={iconSize} src={envelopeIcon} alt="envelope icon" />
                   </div>
                 </a>
 
                 <a className="size-fit" aria-label="Github Link" href="https://github.com/Ethanol48">
                   <div className="flex h-fit w-fit items-center justify-center rounded-lg border-2 p-[2px] transition ease-in-out dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700  hover:bg-slate-200 hover:border-slate-500  border-slate-400">
-                    <Image height={heightWidth} width={heightWidth} src={githubIcon} alt="github icon" />
+                    <Image height={iconSize} width={iconSize} src={githubIcon} alt="github icon" />
                   </div>
                 </a>
 
                 <a className="size-fit" aria-label="Linkedin Link" href="https://linkedin.com/in/ethan-rouimi">
                   <div className="flex h-fit w-fit items-center justify-center rounded-lg border-2 p-[2px] transition ease-in-out dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700  hover:bg-slate-200 hover:border-slate-500  border-slate-400">
                     <Image
-                      height={heightWidth}
-                      width={heightWidth}
+                      height={iconSize}
+                      width={iconSize}
                       src={linkedinIcon}
                       alt="linkedin icon"
                       className="linkedin"
@@ -109,7 +109,7 @@ const Ethanol: NextPage = () => {
 
                 <a className="size-fit" aria-label="Telegram" href="https://t.me/EthanRouimi">
                   <div className="flex h-fit w-fit items-center justify-center rounded-lg border-2 p-[4px] transition ease-in-out dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700  hover:bg-slate-200 hover:border-slate-500  border-slate-400">
-                    <Image height={heightWidth - 4} width={heightWidth - 4} src={telegramIcon} alt="telegram icon" />
+                    <Image height={iconSize - 4} width={iconSize - 4} src={telegramIcon} alt="telegram icon" />
                   </div>
                 </a>
               </div>

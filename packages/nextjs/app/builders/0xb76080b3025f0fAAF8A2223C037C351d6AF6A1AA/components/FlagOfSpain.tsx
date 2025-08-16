@@ -6,12 +6,8 @@ interface SpainFlagProps {
 }
 
 export function FlagOfSpain({ className }: SpainFlagProps) {
-  const styleAdjusted: React.CSSProperties = {
-    rotate: `0deg`,
-  };
-
   return (
-    <div className={`ml-[10px] delay-[50ms] h-fit w-fit ${className}`} style={styleAdjusted}>
+    <div className={`ml-[10px] delay-[50ms] h-fit w-fit ${className}`}>
       <div className="rotate-[2deg] relative">
         <svg
           className="absolute left-[0px] top-1 z-10"
