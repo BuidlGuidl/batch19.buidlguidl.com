@@ -18,7 +18,7 @@ const Ethanol: NextPage = () => {
     if (hover) return;
     setHover(true);
 
-    // Reinicia la animación después de 2.2s
+    // Reset the animation after 2.2s
     setTimeout(() => {
       setHover(false);
     }, 2200);
