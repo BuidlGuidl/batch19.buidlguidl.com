@@ -1,16 +1,17 @@
 import Image from "next/image";
+import type { NextPage } from "next";
 
-const Mikey = () => {
+const Mikey: NextPage = () => {
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white rounded-xl shadow-lg">
+    <div className="max-w-2xl mx-auto p-6 bg-white dark:bg-accent rounded-xl shadow-lg">
       <div className="flex flex-col md:flex-row items-center gap-6 mb-8">
         <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-indigo-100">
-          <Image src="/fish.jpg" alt="avatar" layout="fill" objectFit="cover" />
+          <Image src="/fish.jpg" alt="avatar" fill sizes="(max-width: 768px) 100vw, 128px" className="object-cover" />
         </div>
 
         <div className="text-center md:text-left">
-          <h1 className="text-3xl font-bold text-gray-800">Mikey</h1>
-          <p className="text-xl text-indigo-600 mt-1">Backend Developer</p>
+          <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100">Mikey</h1>
+          <p className="text-xl text-indigo-600 dark:text-gray-100 mt-1">Backend Developer</p>
 
           <div className="mt-4 flex flex-wrap justify-center md:justify-start gap-2">
             <a href="https://github.com/Kinway050" target="_blank" rel="noopener" className="social-icon">
@@ -24,19 +25,19 @@ const Mikey = () => {
       </div>
 
       <section className="mb-8">
-        <h2 className="text-xl font-semibold text-gray-800 mb-3 pb-2 border-b">About me</h2>
-        <p className="text-gray-600 leading-relaxed">
+        <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-3 pb-2 border-b">About me</h2>
+        <p className="text-gray-600 dark:text-slate-100 leading-relaxed">
           I am a backend development engineer from China with 3 years of Golang development experience. I am now working
           on entering the web3 industry and making a Transition to solidity development. I hope to improve my cognition
           and development capabilities during this journey.
         </p>
-        <p className="text-gray-600 leading-relaxed">
+        <p className="text-gray-600 dark:text-slate-100 leading-relaxed">
           我是一名来自中国的后端开发工程师,有3年的Golang开发经验,现在努力于进入web3行业并转型为solidity开发,希望在此次旅程中提高自己的认知和开发能力。
         </p>
       </section>
 
       <section className="mb-8">
-        <h2 className="text-xl font-semibold text-gray-800 mb-3 pb-2 border-b">Skills</h2>
+        <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-3 pb-2 border-b">Skills</h2>
         <div className="flex flex-wrap gap-2">
           {["Golang", "Cpp", "K8S", "Solidity"].map(skill => (
             <span key={skill} className="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-sm font-medium">
@@ -47,7 +48,7 @@ const Mikey = () => {
       </section>
 
       <section className="mb-8">
-        <h2 className="text-xl font-semibold text-gray-800 mb-3 pb-2 border-b">Hobbies</h2>
+        <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-3 pb-2 border-b">Hobbies</h2>
         <div className="flex flex-wrap gap-2">
           {["Texas Hold'em", "Fitness", "Games"].map(skill => (
             <span key={skill} className="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-sm font-medium">
