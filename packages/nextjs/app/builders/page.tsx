@@ -9,7 +9,7 @@ async function BuildersPage() {
 
   return (
     <div className="flex justify-center align-middle flex-col ">
-      <h1 className="text-center my-5 text-xl">Batch 19 Builders</h1>
+      <h1 className="text-center my-5 text-xl font-bold">Batch 19 Builders</h1>
       <BuildersList buildersPages={buildersPages} />
     </div>
   );
