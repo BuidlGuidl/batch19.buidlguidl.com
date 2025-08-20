@@ -10,6 +10,7 @@ interface BuildersListProps {
   buildersPages: string[];
 }
 
+// first block where a builder checkedIn
 const FIRST_BLOCK: bigint = 368046197n;
 
 export function BuildersList({ buildersPages }: BuildersListProps) {
@@ -36,7 +37,7 @@ export function BuildersList({ buildersPages }: BuildersListProps) {
   ) : isLoading ? (
     <>
       <p className="text-center">Loading checked-in events...</p>
-      <span className="loading loading-dots loading-xl"></span>
+      <span className="loading loading-dots loading-xl self-center"></span>
     </>
   ) : (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-col-3 gap-2 justify-items-center px-2 w-max self-center">
