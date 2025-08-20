@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Graduated } from "./Graduated";
 import { GlobeIcon } from "./globeIcon";
 import { Address } from "~~/components/scaffold-eth";
 import { useScaffoldEventHistory } from "~~/hooks/scaffold-eth";
@@ -43,20 +44,21 @@ export function BuildersList({ buildersPages }: BuildersListProps) {
         return (
           <div key={index} className="card w-96 bg-base-100 card-sm shadow-sm">
             <div className="card-body flex flex-row justify-between md:flex-col">
+              <Address onlyEnsOrAddress={true} address={event.args.builder} />
               <div className="flex flex-row justify-between">
-                <Address address={event.args.builder} />
-              </div>
-              <div className="justify-end card-actions">
+                <div className="flex flex-col justify-center md:justify-end invisible w-0 md:w-max md:visible">
+                  {event.args.builder !== undefined && <Graduated address={event.args.builder} />}
+                </div>
                 {buildersPages.includes(event.args.builder ?? "") ? (
-                  <Link className="btn btn-secondary btn-sm" href={`/builders/${event.args.builder}`}>
+                  <Link className="btn btn-secondary btn-sm self-end" href={`/builders/${event.args.builder}`}>
                     <p>Builder Page</p>
-                    <GlobeIcon color={"#000000"} />
+                    <GlobeIcon />
                   </Link>
                 ) : (
-                  <Link className="btn btn-secondary btn-sm btn-disabled" href={`/builders/${event.args.builder}`}>
+                  <div className="btn btn-secondary btn-sm btn-disabled self-end">
                     <p>Builder Page</p>
-                    <GlobeIcon color={"#B9BAC1"} />
-                  </Link>
+                    <GlobeIcon />
+                  </div>
                 )}
               </div>
             </div>
