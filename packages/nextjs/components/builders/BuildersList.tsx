@@ -29,8 +29,17 @@ export function BuildersList({ buildersPages }: BuildersListProps) {
     blocksBatchSize: 500_000,
   });
 
-  // ensure unique events
-  const uniqueEvents = events?.filter(event => event.args.first);
+  // ensure unique events, https://github.com/BuidlGuidl/batch19.buidlguidl.com/pull/23#discussion_r2289451799
+  const seen = new Set<string>();
+  const uniqueEvents = events.filter(item => {
+    if (item.args.builder === undefined) return false;
+
+    if (seen.has(item.args.builder)) {
+      return false; // ya estaba → lo descarta
+    }
+    seen.add(item.args.builder);
+    return true; // lo mantiene
+  });
 
   return errorReadingEvents !== null ? (
     <p className="text-center">An error ocurred processing the builders</p>
