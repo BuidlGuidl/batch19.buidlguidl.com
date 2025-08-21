@@ -13,17 +13,6 @@ interface BuildersListProps {
 // first block where a builder checkedIn
 const FIRST_BLOCK: bigint = 368046197n;
 
-function removeDuplicates(arr: any[]): any[] {
-  const seen = new Set<string>();
-  return arr.filter(item => {
-    if (seen.has(item.builder)) {
-      return false; // ya estaba → lo descarta
-    }
-    seen.add(item.builder);
-    return true; // lo mantiene
-  });
-}
-
 export function BuildersList({ buildersPages }: BuildersListProps) {
   const {
     data: events,
@@ -40,8 +29,8 @@ export function BuildersList({ buildersPages }: BuildersListProps) {
     blocksBatchSize: 500_000,
   });
 
-  // ensure unique events, https://github.com/BuidlGuidl/batch19.buidlguidl.com/pull/23#discussion_r2289451799
-  const uniqueEvents = removeDuplicates(events);
+  // ensure unique events
+  const uniqueEvents = events?.filter(event => event.args.first);
 
   return errorReadingEvents !== null ? (
     <p className="text-center">An error ocurred processing the builders</p>
