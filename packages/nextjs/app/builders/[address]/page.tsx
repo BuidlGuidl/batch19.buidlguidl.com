@@ -36,10 +36,10 @@ const BuilderPage = () => {
     bio: "Passionate about building decentralized applications and exploring the future of blockchain technology. Currently focused on DeFi protocols and NFT innovations.",
     skills: ["Solidity", "React", "TypeScript", "Hardhat", "Ethereum", "DeFi"],
     socials: {
-      github: "https://github.com/yourusername",
-      twitter: "https://twitter.com/yourusername",
-      linkedin: "https://linkedin.com/in/yourusername",
-      portfolio: "https://fahmin.eth",
+      github: "https://github.com/fahmmin",
+      twitter: "https://twitter.com/fahmin_md",
+      linkedin: "https://linkedin.com/in/fahminmohammed",
+      portfolio: "https://github.com/fahmmin",
     },
     achievements: [
       "Built multiple DeFi protocols",
