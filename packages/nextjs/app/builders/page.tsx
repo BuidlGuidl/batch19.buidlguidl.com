@@ -3,53 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRightIcon,
-  BeakerIcon,
-  CircleStackIcon,
-  CodeBracketIcon,
-  CommandLineIcon,
-  CubeIcon,
-  SparklesIcon,
-  UserGroupIcon,
-} from "@heroicons/react/24/outline";
-
-type SkillCategory = {
-  icon: React.ReactElement;
-  color: string;
-};
-
-type SkillCategories = {
-  web3: SkillCategory;
-  frontend: SkillCategory;
-  ai: SkillCategory;
-  backend: SkillCategory;
-  tools: SkillCategory;
-};
-
-// Define skill categories with icons
-const skillCategories: SkillCategories = {
-  web3: {
-    icon: <CubeIcon className="h-3 w-3" />,
-    color: "text-primary",
-  },
-  frontend: {
-    icon: <CodeBracketIcon className="h-3 w-3" />,
-    color: "text-blue-500",
-  },
-  ai: {
-    icon: <BeakerIcon className="h-3 w-3" />,
-    color: "text-purple-500",
-  },
-  backend: {
-    icon: <CircleStackIcon className="h-3 w-3" />,
-    color: "text-green-500",
-  },
-  tools: {
-    icon: <CommandLineIcon className="h-3 w-3" />,
-    color: "text-orange-500",
-  },
-};
+import { ArrowRightIcon, CodeBracketIcon, SparklesIcon, UserGroupIcon } from "@heroicons/react/24/outline";
 
 type Builder = {
   address: string;
@@ -57,13 +11,6 @@ type Builder = {
   title: string;
   status: "checked-in" | "pending";
   ensName: string;
-  skills: {
-    web3: string[];
-    frontend: string[];
-    ai: string[];
-    backend: string[];
-    tools: string[];
-  };
 };
 
 const BuildersPage = () => {
@@ -75,13 +22,6 @@ const BuildersPage = () => {
       title: "Smart Contract Developer",
       status: "checked-in",
       ensName: "fahmin.eth",
-      skills: {
-        web3: ["Solidity", "Rust", "ThirdWeb", "EthDapp"],
-        frontend: ["React", "NextJS"],
-        ai: ["LangChain", "LLM", "OpenCV", "scikit-learn"],
-        backend: ["MongoDB", "Firebase", "0Auth", "Clerk"],
-        tools: ["Git", "GitHub", "Vercel"],
-      },
     },
   ];
 
@@ -91,7 +31,7 @@ const BuildersPage = () => {
       <div className="relative overflow-hidden bg-gradient-to-br from-base-200 via-base-100 to-base-300">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10"></div>
         <div className="relative px-6 py-20">
-          <div className="mx-auto max-w-6xl text-center">
+          <div className="mx-auto max-w-6xl text-center px-6">
             <div className="flex justify-center mb-8">
               <div className="p-6 bg-primary/20 rounded-2xl">
                 <UserGroupIcon className="h-16 w-16 text-primary" />
@@ -115,7 +55,7 @@ const BuildersPage = () => {
 
       {/* Builders Grid */}
       <div className="px-6 py-16">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-7xl px-6">
           {builders.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
               {builders.map(builder => (
@@ -155,38 +95,6 @@ const BuildersPage = () => {
                           {builder.name}
                         </h3>
                         <p className="text-sm text-base-content/70 line-clamp-2">{builder.title}</p>
-                      </div>
-
-                      {/* Skills Section */}
-                      <div className="space-y-2 pt-2">
-                        {(Object.entries(builder.skills) as [keyof typeof skillCategories, string[]][]).map(
-                          ([category, skills]) => (
-                            <div key={category} className="text-left">
-                              <div className="flex items-center gap-1.5 mb-1">
-                                <span className={skillCategories[category].color}>
-                                  {skillCategories[category].icon}
-                                </span>
-                                <span className={`text-xs font-medium ${skillCategories[category].color}`}>
-                                  {category.toUpperCase()}
-                                </span>
-                              </div>
-                              <div className="flex flex-wrap gap-1">
-                                {skills.map((skill, i) => (
-                                  <span
-                                    key={i}
-                                    className={`px-2 py-0.5 rounded-full text-[10px] font-medium bg-opacity-20 border border-opacity-30
-                                    ${skillCategories[category].color.replace("text-", "bg-")} 
-                                    ${skillCategories[category].color}
-                                    ${skillCategories[category].color.replace("text-", "border-")}
-                                  `}
-                                  >
-                                    {skill}
-                                  </span>
-                                ))}
-                              </div>
-                            </div>
-                          ),
-                        )}
                       </div>
 
                       {/* ENS and Address Info */}
