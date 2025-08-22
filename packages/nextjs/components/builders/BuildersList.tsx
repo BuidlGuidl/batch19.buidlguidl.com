@@ -35,10 +35,10 @@ export function BuildersList({ buildersPages }: BuildersListProps) {
     if (item.args.builder === undefined) return false;
 
     if (seen.has(item.args.builder)) {
-      return false; // ya estaba → lo descarta
+      return false; // discards event if the builder was already seen
     }
     seen.add(item.args.builder);
-    return true; // lo mantiene
+    return true; // keeps the event on the list
   });
 
   return errorReadingEvents !== null ? (
