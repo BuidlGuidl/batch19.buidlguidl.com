@@ -22,9 +22,12 @@ export const ConnectedWalletBatchInfos = () => {
     userContractAddress.data !== "0x0000000000000000000000000000000000000000";
 
   return (
-    <div className="flex gap-2">
-      {isMember.data && <AcademicCapIcon className="size-6" title="Batch Member" />}
-      {isCheckedIn && <CheckBadgeIcon className="size-6" title="Checked In" />}
-    </div>
+    <>
+      {isCheckedIn ? (
+        <CheckBadgeIcon className="size-6" title="Checked In" />
+      ) : (
+        isMember.data && <AcademicCapIcon className="size-6" title="Batch Member" />
+      )}
+    </>
   );
 };
