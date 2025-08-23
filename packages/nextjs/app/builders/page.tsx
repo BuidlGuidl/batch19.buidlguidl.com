@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { NextPage } from "next";
 import { ArrowRightIcon, CodeBracketIcon, SparklesIcon, UserGroupIcon } from "@heroicons/react/24/outline";
 
 type Builder = {
@@ -13,7 +14,7 @@ type Builder = {
   ensName: string;
 };
 
-const BuildersPage = () => {
+const BuildersPage: NextPage = () => {
   // You can customize this list or fetch it from a contract
   const builders: Builder[] = [
     {
@@ -31,7 +32,7 @@ const BuildersPage = () => {
       <div className="relative overflow-hidden bg-gradient-to-br from-base-200 via-base-100 to-base-300">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10"></div>
         <div className="relative px-6 py-20">
-          <div className="mx-auto max-w-6xl text-center px-6">
+          <div className="mx-auto max-w-6xl text-center">
             <div className="flex justify-center mb-8">
               <div className="p-6 bg-primary/20 rounded-2xl">
                 <UserGroupIcon className="h-16 w-16 text-primary" />
@@ -55,7 +56,7 @@ const BuildersPage = () => {
 
       {/* Builders Grid */}
       <div className="px-6 py-16">
-        <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-7xl">
           {builders.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
               {builders.map(builder => (
@@ -96,7 +97,6 @@ const BuildersPage = () => {
                         </h3>
                         <p className="text-sm text-base-content/70 line-clamp-2">{builder.title}</p>
                       </div>
-
                       {/* ENS and Address Info */}
                       {builder.ensName && (
                         <div className="flex items-center justify-center space-x-2 pt-2">
