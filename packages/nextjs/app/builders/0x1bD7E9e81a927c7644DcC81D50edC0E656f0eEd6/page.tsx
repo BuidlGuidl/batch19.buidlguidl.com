@@ -1,38 +1,39 @@
 "use client";
 
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { ExternalLink, Github, Twitter } from "lucide-react";
+import type { NextPage } from "next";
 
-export default function Page() {
-  const BOARD_WIDTH = 10;
-  const BOARD_HEIGHT = 16;
+// Constants moved outside component for better performance
+const BOARD_WIDTH = 10;
+const BOARD_HEIGHT = 16;
 
-  // Tetris pieces
-  const PIECES = {
-    I: [[1, 1, 1, 1]],
-    O: [
-      [1, 1],
-      [1, 1],
-    ],
-    T: [
-      [0, 1, 0],
-      [1, 1, 1],
-    ],
-    L: [
-      [1, 0],
-      [1, 0],
-      [1, 1],
-    ],
-    S: [
-      [0, 1, 1],
-      [1, 1, 0],
-    ],
-  };
+const PIECES = {
+  I: [[1, 1, 1, 1]],
+  O: [
+    [1, 1],
+    [1, 1],
+  ],
+  T: [
+    [0, 1, 0],
+    [1, 1, 1],
+  ],
+  L: [
+    [1, 0],
+    [1, 0],
+    [1, 1],
+  ],
+  S: [
+    [0, 1, 1],
+    [1, 1, 0],
+  ],
+};
 
+const JennyTPage: NextPage = () => {
   const [board, setBoard] = useState(() =>
     Array(BOARD_HEIGHT)
-      .fill(null) // Fix: add null argument
+      .fill(null)
       .map(() => Array(BOARD_WIDTH).fill(0)),
   );
   const [currentPiece, setCurrentPiece] = useState<number[][] | null>(null);
@@ -41,13 +42,14 @@ export default function Page() {
   const [gameStarted, setGameStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
 
-  const getRandomPiece = (): number[][] => {
+  // Wrapped with useCallback as requested
+  const getRandomPiece = useCallback((): number[][] => {
     const pieces = Object.keys(PIECES) as Array<keyof typeof PIECES>;
     const randomPiece = pieces[Math.floor(Math.random() * pieces.length)];
     return PIECES[randomPiece];
-  };
+  }, []);
 
-  const canMovePiece = (piece: number[][], x: number, y: number): boolean => {
+  const canMovePiece = useCallback((piece: number[][], x: number, y: number): boolean => {
     for (let row = 0; row < piece.length; row++) {
       for (let col = 0; col < piece[row].length; col++) {
         if (piece[row][col]) {
@@ -59,13 +61,12 @@ export default function Page() {
       }
     }
     return true;
-  };
+  }, [board]);
 
   const placePiece = useCallback(() => {
-    if (!currentPiece) return; // Fix: TypeScript null check already here
+    if (!currentPiece) return;
     const newBoard = board.map(row => [...row]);
 
-    // Fix: Add explicit null check for currentPiece
     if (currentPiece) {
       for (let row = 0; row < currentPiece.length; row++) {
         for (let col = 0; col < currentPiece[row].length; col++) {
@@ -97,7 +98,7 @@ export default function Page() {
     } else {
       setGameOver(true);
     }
-  }, [board, currentPiece, piecePos]);
+  }, [board, currentPiece, piecePos, canMovePiece, getRandomPiece]);
 
   const movePiece = useCallback(
     (dx: number, dy: number) => {
@@ -112,13 +113,13 @@ export default function Page() {
         placePiece();
       }
     },
-    [currentPiece, piecePos, placePiece],
+    [currentPiece, piecePos, placePiece, canMovePiece],
   );
 
-  const startGame = () => {
+  const startGame = useCallback(() => {
     setBoard(
       Array(BOARD_HEIGHT)
-        .fill(null) // Fix: add null argument
+        .fill(null)
         .map(() => Array(BOARD_WIDTH).fill(0)),
     );
     setCurrentPiece(getRandomPiece());
@@ -126,7 +127,28 @@ export default function Page() {
     setScore(0);
     setGameStarted(true);
     setGameOver(false);
-  };
+  }, [getRandomPiece]);
+
+  // Converted to useMemo as suggested, renamed from renderBoard
+  const displayBoard = useMemo(() => {
+    const boardCopy = board.map(row => [...row]);
+
+    if (currentPiece) {
+      for (let row = 0; row < currentPiece.length; row++) {
+        for (let col = 0; col < currentPiece[row].length; col++) {
+          if (currentPiece[row][col]) {
+            const y = piecePos.y + row;
+            const x = piecePos.x + col;
+            if (y >= 0 && y < BOARD_HEIGHT && x >= 0 && x < BOARD_WIDTH) {
+              boardCopy[y][x] = 2;
+            }
+          }
+        }
+      }
+    }
+
+    return boardCopy;
+  }, [board, currentPiece, piecePos]);
 
   // Game loop
   useEffect(() => {
@@ -163,27 +185,6 @@ export default function Page() {
     window.addEventListener("keydown", handleKeyPress);
     return () => window.removeEventListener("keydown", handleKeyPress);
   }, [gameStarted, gameOver, movePiece]);
-
-  // Render board with current piece
-  const renderBoard = () => {
-    const displayBoard = board.map(row => [...row]);
-
-    if (currentPiece) {
-      for (let row = 0; row < currentPiece.length; row++) {
-        for (let col = 0; col < currentPiece[row].length; col++) {
-          if (currentPiece[row][col]) {
-            const y = piecePos.y + row;
-            const x = piecePos.x + col;
-            if (y >= 0 && y < BOARD_HEIGHT && x >= 0 && x < BOARD_WIDTH) {
-              displayBoard[y][x] = 2;
-            }
-          }
-        }
-      }
-    }
-
-    return displayBoard;
-  };
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-purple-100 to-blue-100 p-6">
@@ -232,7 +233,7 @@ export default function Page() {
             <div className="bg-white rounded-2xl p-6 shadow-sm">
               <h2 className="text-lg font-semibold text-gray-800 mb-4">Connect</h2>
               <div className="space-y-3">
-                <a
+                
                   href="https://twitter.com/jennyt_eth"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -241,7 +242,7 @@ export default function Page() {
                   <Twitter className="w-5 h-5 text-blue-500" />
                   <span className="text-gray-700 font-medium">Twitter</span>
                 </a>
-                <a
+                
                   href="https://github.com/jennyt3"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -250,7 +251,7 @@ export default function Page() {
                   <Github className="w-5 h-5 text-gray-700" />
                   <span className="text-gray-700 font-medium">GitHub</span>
                 </a>
-                <a
+                
                   href="https://bento.me/jennyt"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -259,7 +260,7 @@ export default function Page() {
                   <ExternalLink className="w-5 h-5 text-purple-500" />
                   <span className="text-gray-700 font-medium">Bento.me</span>
                 </a>
-                <a
+                
                   href="https://app.ens.domains/jennyt.eth"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -279,7 +280,7 @@ export default function Page() {
             {/* Game Area */}
             <div className="flex justify-center mb-4">
               <div className="bg-gray-900 p-2 rounded-lg">
-                {renderBoard().map((row, y) => (
+                {displayBoard.map((row, y) => (
                   <div key={y} className="flex">
                     {row.map((cell, x) => (
                       <div
@@ -320,4 +321,6 @@ export default function Page() {
       </div>
     </main>
   );
-}
+};
+
+export default JennyTPage;
