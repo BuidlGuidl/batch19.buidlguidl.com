@@ -34,7 +34,7 @@ const JennyTPage = () => {
                 </p>
 
                 <div className="mt-4 p-3 bg-purple-50 rounded-lg">
-                  <p className="text-purple-700 italic text-sm text-center">'Idea generator, making things happen'</p>
+                  Idea generator, making things happen
                 </div>
               </div>
             </div>
