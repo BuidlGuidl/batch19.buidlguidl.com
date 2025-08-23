@@ -55,7 +55,7 @@ const JennyTPage: NextPage = () => {
               <h2 className="text-lg font-semibold text-gray-800 mb-4">Connect</h2>
               <div className="space-y-3">
                 
-                  href="https://twitter.com/jennyt_eth"
+                 <a href="https://twitter.com/jennyt_eth"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 p-3 rounded-lg bg-blue-50 hover:bg-blue-100 transition-colors"
@@ -64,7 +64,7 @@ const JennyTPage: NextPage = () => {
                   <span className="text-gray-700 font-medium">Twitter</span>
                 </a>
                 
-                  href="https://github.com/jennyt3"
+                 <a href="https://github.com/jennyt3"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors"
@@ -73,7 +73,7 @@ const JennyTPage: NextPage = () => {
                   <span className="text-gray-700 font-medium">GitHub</span>
                 </a>
                 
-                  href="https://bento.me/jennyt"
+                 <a href="https://bento.me/jennyt"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 p-3 rounded-lg bg-purple-50 hover:bg-purple-100 transition-colors"
@@ -82,7 +82,7 @@ const JennyTPage: NextPage = () => {
                   <span className="text-gray-700 font-medium">Bento.me</span>
                 </a>
                 
-                  href="https://app.ens.domains/jennyt.eth"
+                 <a href="https://app.ens.domains/jennyt.eth"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 p-3 rounded-lg bg-indigo-50 hover:bg-indigo-100 transition-colors"
