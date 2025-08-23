@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useParams } from "next/navigation";
+import { NextPage } from "next";
 import { useEnsName } from "wagmi";
 import {
   ArrowRightIcon,
@@ -14,7 +15,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { Address } from "~~/components/scaffold-eth";
 
-const BuilderPage = () => {
+const Fahmin: NextPage = () => {
   const params = useParams();
   const address = params.address as string;
   const [isHovered, setIsHovered] = useState(false);
@@ -272,4 +273,4 @@ const BuilderPage = () => {
   );
 };
 
-export default BuilderPage;
+export default Fahmin;
