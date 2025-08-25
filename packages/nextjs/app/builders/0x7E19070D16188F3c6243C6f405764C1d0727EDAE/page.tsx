@@ -1,56 +1,32 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
-import { useParams } from "next/navigation";
 import { NextPage } from "next";
-import { useEnsName } from "wagmi";
-import {
-  ArrowRightIcon,
-  CodeBracketIcon,
-  CommandLineIcon,
-  GlobeAltIcon,
-  RocketLaunchIcon,
-  SparklesIcon,
-} from "@heroicons/react/24/outline";
+import { ArrowRightIcon, CodeBracketIcon, RocketLaunchIcon, SparklesIcon } from "@heroicons/react/24/outline";
+import { socialIconMap } from "~~/components/builders/SocialIcons";
 import { Address } from "~~/components/scaffold-eth";
 
+const builderInfo = {
+  name: "Fahmin",
+  title: "Smart Contract Developer & Web3 Enthusiast",
+  bio: "Passionate about building decentralized applications and exploring the future of blockchain technology. Currently focused on DeFi protocols and NFT innovations.",
+  skills: ["Solidity", "React", "TypeScript", "Hardhat", "Ethereum", "DeFi"],
+  socials: {
+    github: "https://github.com/fahmmin",
+    twitter: "https://twitter.com/fahmin_md",
+    linkedin: "https://linkedin.com/in/fahminmohammed",
+    portfolio: "https://www.fahmin.me",
+  },
+  achievements: [
+    "Built multiple DeFi protocols",
+    "Contributed to open-source projects",
+    "Completed advanced Solidity courses",
+    "Active in Web3 communities",
+  ],
+};
+
 const Fahmin: NextPage = () => {
-  const params = useParams();
-  const address = params.address as string;
-  const [isHovered, setIsHovered] = useState(false);
-
-  // Get ENS name using wagmi hook
-  const { data: ensName } = useEnsName({
-    address: address as `0x${string}`,
-    chainId: 1,
-    query: {
-      enabled: Boolean(address),
-      gcTime: 30_000,
-    },
-  });
-
-  // You can customize these details
-  const builderInfo = {
-    name: "Fahmin",
-    title: "Smart Contract Developer & Web3 Enthusiast",
-    bio: "Passionate about building decentralized applications and exploring the future of blockchain technology. Currently focused on DeFi protocols and NFT innovations.",
-    skills: ["Solidity", "React", "TypeScript", "Hardhat", "Ethereum", "DeFi"],
-    socials: {
-      github: "https://github.com/fahmmin",
-      twitter: "https://twitter.com/fahmin_md",
-      linkedin: "https://linkedin.com/in/fahminmohammed",
-      portfolio: "https://github.com/fahmmin",
-    },
-    achievements: [
-      "Built multiple DeFi protocols",
-      "Contributed to open-source projects",
-      "Completed advanced Solidity courses",
-      "Active in Web3 communities",
-    ],
-  };
-
-  const avatarUrl = ensName ? `https://euc.li/${ensName}` : null;
+  const avatarUrl = `https://euc.li/fahmin.eth`;
 
   return (
     <div className="min-h-screen bg-base-100">
@@ -65,38 +41,28 @@ const Fahmin: NextPage = () => {
                   <span className="text-primary">Web3</span> enthusiast
                 </h1>
                 <p className="text-xl text-base-content/70 font-mono">
-                  He crafts decentralized applications where blockchain meets innovation
+                  Building the future of decentralized applications
                 </p>
               </div>
 
               {/* Address Display */}
               <div className="inline-flex items-center space-x-3 bg-base-200/50 rounded-2xl p-4 border border-base-300">
-                {avatarUrl ? (
-                  <Image
-                    src={avatarUrl}
-                    alt={`${ensName} avatar`}
-                    width={32}
-                    height={32}
-                    className="w-8 h-8 rounded-full"
-                  />
-                ) : (
-                  <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-full"></div>
-                )}
-                <Address address={address} size="base" format="long" />
+                <Address address={"0x7E19070D16188F3c6243C6f405764C1d0727EDAE"} size="base" format="long" />
               </div>
             </div>
 
             {/* Right Side - Large Profile Picture */}
             <div className="relative flex justify-center">
-              <div
-                className="relative w-96 h-96"
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
+              <a
+                href={builderInfo.socials.portfolio}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative w-96 h-96 block"
               >
                 {avatarUrl ? (
                   <Image
                     src={avatarUrl}
-                    alt={`${ensName} profile`}
+                    alt={`fahmin.eth profile`}
                     width={384}
                     height={384}
                     className="w-full h-full rounded-full object-cover"
@@ -106,12 +72,10 @@ const Fahmin: NextPage = () => {
                     <CodeBracketIcon className="h-24 w-24 text-primary/60" />
                   </div>
                 )}
-                {isHovered && (
-                  <div className="absolute inset-0 bg-primary/20 rounded-full flex items-center justify-center">
-                    <SparklesIcon className="h-16 w-16 text-primary" />
-                  </div>
-                )}
-              </div>
+                <div className="absolute inset-0 bg-primary/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  <SparklesIcon className="h-16 w-16 text-primary" />
+                </div>
+              </a>
 
               {/* Geometric Elements */}
               <div className="absolute -top-4 -left-4 w-16 h-16 border-2 border-primary/30 rounded-lg"></div>
@@ -238,18 +202,10 @@ const Fahmin: NextPage = () => {
                   >
                     <div className="flex items-center space-x-3">
                       <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
-                        {platform === "github" && <CommandLineIcon className="h-5 w-5 text-primary" />}
-                        {platform === "twitter" && (
-                          <svg className="h-5 w-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-                          </svg>
-                        )}
-                        {platform === "linkedin" && (
-                          <svg className="h-5 w-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.047-1.852-3.047-1.853 0-2.136 1.445-2.136 2.939v5.677H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                          </svg>
-                        )}
-                        {platform === "portfolio" && <GlobeAltIcon className="h-5 w-5 text-primary" />}
+                        {(() => {
+                          const IconComponent = socialIconMap[platform];
+                          return IconComponent ? <IconComponent className="h-5 w-5" /> : null;
+                        })()}
                       </div>
                       <span className="font-medium text-base-content capitalize">{platform}</span>
                     </div>
