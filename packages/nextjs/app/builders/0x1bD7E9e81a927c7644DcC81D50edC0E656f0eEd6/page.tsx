@@ -1,7 +1,6 @@
-"use client";
-
 import Image from "next/image";
 import type { NextPage } from "next";
+import { Address } from "~~/components/scaffold-eth";
 
 const JennyTPage: NextPage = () => {
   return (
@@ -12,17 +11,16 @@ const JennyTPage: NextPage = () => {
             src="/avatar/jennyt.eth.jpg"
             alt="Jenny T. Profile"
             fill
-            sizes="(max-width: 768px) 100vw, 128px"
+            sizes="128px"
             className="object-cover"
+            priority
           />
         </div>
 
         <div className="text-center md:text-left">
           <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-2">Jenny T.</h1>
           <p className="text-lg text-purple-600 dark:text-purple-400 mb-2">jennyt.eth</p>
-          <p className="text-sm text-gray-500 dark:text-gray-400 font-mono">
-            0x1bD7E9e81a927c7644DcC81D50edC0E656f0eEd6
-          </p>
+          <Address address="0x1bD7E9e81a927c7644DcC81D50edC0E656f0eEd6" />
         </div>
       </div>
 
