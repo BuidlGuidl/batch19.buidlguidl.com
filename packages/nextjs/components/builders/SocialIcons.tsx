@@ -12,9 +12,9 @@ export const LinkedInIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const socialIconMap: Record<string, React.FC<{ className?: string }>> = {
-  github: props => <CommandLineIcon className={props.className ?? "h-5 w-5 text-primary"} />,
-  twitter: props => <TwitterIcon className={props.className ?? "h-5 w-5 text-blue-400"} />,
-  linkedin: props => <LinkedInIcon className={props.className ?? "h-5 w-5 text-blue-600"} />,
-  portfolio: props => <GlobeAltIcon className={props.className ?? "h-5 w-5 text-primary"} />,
+export const socialIconMap: Record<string, JSX.Element> = {
+  github: <CommandLineIcon className="h-5 w-5 text-primary" />,
+  twitter: <TwitterIcon className="h-5 w-5 text-blue-400" />,
+  linkedin: <LinkedInIcon className="h-5 w-5 text-blue-600" />,
+  portfolio: <GlobeAltIcon className="h-5 w-5 text-primary" />,
 };
