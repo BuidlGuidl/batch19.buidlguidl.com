@@ -22,10 +22,9 @@ const builderInfo = {
     "Active in Web3 communities",
   ],
 };
+const avatarUrl = `https://euc.li/fahmin.eth`;
 
 const Fahmin: NextPage = () => {
-  const avatarUrl = `https://euc.li/fahmin.eth`;
-
   return (
     <div className="min-h-screen bg-base-100">
       {/* Hero Section */}
