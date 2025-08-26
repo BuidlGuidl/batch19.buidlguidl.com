@@ -1,4 +1,5 @@
 import { CommandLineIcon, GlobeAltIcon } from "@heroicons/react/24/outline";
+import { JSX } from "react";
 
 export const TwitterIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg className={props.className} fill="currentColor" viewBox="0 0 24 24" {...props}>
