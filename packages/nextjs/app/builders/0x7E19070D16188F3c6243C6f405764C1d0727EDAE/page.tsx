@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { NextPage } from "next";
 import { ArrowRightIcon, CodeBracketIcon, RocketLaunchIcon, SparklesIcon } from "@heroicons/react/24/outline";
