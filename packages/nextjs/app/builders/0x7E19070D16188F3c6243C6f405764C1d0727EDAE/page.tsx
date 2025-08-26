@@ -202,10 +202,7 @@ const Fahmin: NextPage = () => {
                   >
                     <div className="flex items-center space-x-3">
                       <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
-                        {(() => {
-                          const IconComponent = socialIconMap[platform];
-                          return IconComponent ? <IconComponent className="h-5 w-5" /> : null;
-                        })()}
+{socialIconMap[platform] ?? null}
                       </div>
                       <span className="font-medium text-base-content capitalize">{platform}</span>
                     </div>
