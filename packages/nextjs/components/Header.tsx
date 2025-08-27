@@ -27,7 +27,6 @@ export const menuLinks: HeaderMenuLink[] = [
     href: "/builders",
     icon: <ComputerDesktopIcon className="h-4 w-4" />,
   },
-
   {
     label: "Debug Contracts",
     href: "/debug",

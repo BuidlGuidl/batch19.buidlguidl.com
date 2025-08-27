@@ -14,6 +14,12 @@ const nextConfig: NextConfig = {
     config.externals.push("pino-pretty", "lokijs", "encoding");
     return config;
   },
+  images: {
+    remotePatterns: [{
+      protocol: "https",
+      hostname: "euc.li",
+    }],
+  },
 };
 
 const isIpfs = process.env.NEXT_PUBLIC_IPFS_BUILD === "true";
@@ -22,6 +28,7 @@ if (isIpfs) {
   nextConfig.output = "export";
   nextConfig.trailingSlash = true;
   nextConfig.images = {
+    ...nextConfig.images,
     unoptimized: true,
   };
 }
