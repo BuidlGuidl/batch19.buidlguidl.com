@@ -1,5 +1,7 @@
 import { useScaffoldEventHistory } from "~~/hooks/scaffold-eth";
-import { FIRST_BLOCK } from "~~/utils/constants";
+
+// first block where a builder checkedIn
+const FIRST_BLOCK: bigint = 368046197n;
 
 export function useBuildersEvent() {
   const {
