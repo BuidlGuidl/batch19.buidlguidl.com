@@ -21,7 +21,14 @@ export const BuilderCard = ({ builderAddress }: { builderAddress: string }) => {
 
   return (
     <div className="card w-86 h-122 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-xl overflow-hidden relative">
-      <Image src={ensAvatar || "/avatar/default.png"} alt={displayName} fill className="object-cover" sizes="100%" />
+      <Image
+        src={ensAvatar || "/avatar/default.jpg"}
+        alt={displayName}
+        fill
+        className="object-cover"
+        sizes="100%"
+        priority
+      />
 
       <div className="absolute bottom-5 left-5 right-5 bg-white rounded-xl p-4">
         <div className="space-y-2">
