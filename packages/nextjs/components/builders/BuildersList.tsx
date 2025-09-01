@@ -4,42 +4,14 @@ import Link from "next/link";
 import { Graduated } from "./Graduated";
 import { GlobeIcon } from "./globeIcon";
 import { Address } from "~~/components/scaffold-eth";
-import { useScaffoldEventHistory } from "~~/hooks/scaffold-eth";
+import { useBuildersEvent } from "~~/hooks/useBuildersEvent";
 
 interface BuildersListProps {
   buildersPages: string[];
 }
 
-// first block where a builder checkedIn
-const FIRST_BLOCK: bigint = 368046197n;
-
 export function BuildersList({ buildersPages }: BuildersListProps) {
-  const {
-    data: events,
-    isLoading: isLoading,
-    error: errorReadingEvents,
-  } = useScaffoldEventHistory({
-    contractName: "BatchRegistry",
-    eventName: "CheckedIn",
-    fromBlock: FIRST_BLOCK,
-    watch: false,
-    blockData: false,
-    transactionData: false,
-    receiptData: false,
-    blocksBatchSize: 500_000,
-  });
-
-  // ensure unique events, https://github.com/BuidlGuidl/batch19.buidlguidl.com/pull/23#discussion_r2289451799
-  const seen = new Set<string>();
-  const uniqueEvents = events.filter(item => {
-    if (item.args.builder === undefined) return false;
-
-    if (seen.has(item.args.builder)) {
-      return false; // discards event if the builder was already seen
-    }
-    seen.add(item.args.builder);
-    return true; // keeps the event on the list
-  });
+  const { events: uniqueEvents, isLoading, error: errorReadingEvents } = useBuildersEvent();
 
   return errorReadingEvents !== null ? (
     <p className="text-center">An error ocurred processing the builders</p>

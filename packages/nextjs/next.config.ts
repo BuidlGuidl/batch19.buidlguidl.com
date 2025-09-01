@@ -15,10 +15,16 @@ const nextConfig: NextConfig = {
     return config;
   },
   images: {
-    remotePatterns: [{
-      protocol: "https",
-      hostname: "euc.li",
-    }],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "euc.li",
+      },
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+      },
+    ],
   },
 };
 
